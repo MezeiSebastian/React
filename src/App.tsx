@@ -1,14 +1,26 @@
 import React from "react";
-
 import "./App.css";
-import { Provider } from "react-redux";
-import { store } from "./store/configureStore";
-import AppRouter from "./router";
 
-const App: React.FC = () => {
+
+import { Provider } from "react-redux";
+import { ApplicationState } from "./redux/store";
+import { Store } from "redux";
+import { History } from "history";
+import { ConnectedRouter } from "connected-react-router";
+import Routes from "./routes";
+interface MainProps {
+  store: Store<ApplicationState>;
+  history: History;
+}
+
+const App: React.FC<MainProps> = ({ store, history }) => {
   return (
     <Provider store={store}>
-      <AppRouter />
+    
+        <ConnectedRouter history={history}>
+          <Routes />
+        </ConnectedRouter>
+      
     </Provider>
   );
 };
