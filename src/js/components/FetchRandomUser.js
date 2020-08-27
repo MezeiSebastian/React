@@ -25,7 +25,6 @@ export default class FetchRandomUser extends React.Component {
        const { id, name} = person //destructuring
        return (
           <Row key={id}>
-             <Cell>{id}</Cell>
              <Cell>{name}</Cell>
           </Row>
        )
@@ -45,11 +44,9 @@ export default class FetchRandomUser extends React.Component {
 
     return (
       <Table>
-    <Header>
-      <HeaderCell key="NAME">Id</HeaderCell>
-      <HeaderCell key="ADDRESS">Name</HeaderCell>
-      <HeaderCell key="PHONE_NUMBER">Phone Number</HeaderCell>
-    </Header>
+      <Header>
+      <HeaderCell key="Name">Name</HeaderCell>
+      </Header>
     <Body>
      {this.renderTableData()}
     </Body>
